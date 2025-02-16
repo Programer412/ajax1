@@ -1,0 +1,9 @@
+<tr id="comment_<%= comment.id %>">
+    <td colspan="2"><%= comment.comment %></td>
+    <td style="display: flex">
+      <%= link_to 'Edit', edit_post_comment_path(@post, comment),class:"comment_edit_link",remote: true, data: {comment: comment.id,post: @post.id}%>
+
+      <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete, remote: true, style: 'margin-left: 4px;'%>
+    </td>
+  </tr>
+

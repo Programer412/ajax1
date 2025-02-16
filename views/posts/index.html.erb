@@ -1,0 +1,56 @@
+<div id="form_new_container">
+    <h2>Post</h2>
+  </div>
+  <div id="form_container">
+    <h2>Post</h2>
+  </div>
+  <div id="show_container">
+  </div>
+
+  <div id="post_container">
+    <h3> <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Do you want to logout the page?" } %></h3>
+  <table id="posts" cellspacing="24" cellpadding="3">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+
+      <tbody id="postsTable">
+      <% @posts.each do |post| %>
+        <%= render 'post_row', post: post %>
+
+      <% end %>
+
+      </tbody>
+  </table>
+
+<div class="data">
+  <%= link_to 'Add Post', 'new_post_path', id: 'post_link' %>
+</div>
+
+<script>
+    $(document).ready(function() {
+        console.log("helo world");
+
+        $("#post_link").click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "<%= new_post_path %>",
+                type: "GET",
+                success: function(data) {
+                    $("#form_container").html(data);
+
+                },
+                error: function() {
+                    alert("error.");
+                }
+            });
+        });
+
+    });
+
+</script>
+</div>

@@ -1,0 +1,11 @@
+<tr id="post_<%= post.id %>">
+  <td><%= j post.title %></td>
+  <td><%= j post.description %></td>
+  <td style="display: flex">
+    <%= link_to 'Show', post_path(post),remote: true, style: 'margin-left:4px' %>
+    <%= link_to 'Edit', edit_post_path(post), class: 'post_edit_link', remote: true, data: { post_id: post.id } %>
+
+    <%= link_to 'Delete', post_path(post), method: :delete, data: { turbo_confirm: 'Are you sure that you want to delete this post?' }, remote: true, style: 'margin-left:4px' %>
+  </td>
+
+</tr>

@@ -1,0 +1,28 @@
+<%= form_with model: @post, local: false do |f| %>
+  <div>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+    <% if @post.errors[:title].any? %>
+      <div class="error"><p style="color: red"><%= @post.errors[:title].first %></p></div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description %>
+    <% if @post.errors[:description].any? %>
+      <div class="error"><p style="color: red"><%= @post.errors[:description].first %></p></div>
+    <% end %>
+  </div>
+  <br>
+  <div class="comments">
+    <%= f.fields_for :comments do |comment| %>
+      <%= render 'comment_fields', f: comment %>
+    <% end %>
+    <%= link_to_add_association 'Add Comment', f, :comments %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit 'Create Post'   %>
+  </div>
+<% end %>

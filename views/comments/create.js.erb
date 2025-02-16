@@ -1,0 +1,9 @@
+console.log("create.js.erb executed");
+
+// Append the new comment to the comment section
+$("#comment-table tbody").prepend(`<%= j(render 'comments/comment_row', post: @post, comment: @comment) %>`);
+
+// Reset the form after the prepend is done
+$("form")[0].reset();
+$("#comment_new").hide(); // Hide the form after submission
+$("#show").show(); // Show the comments section after form submission

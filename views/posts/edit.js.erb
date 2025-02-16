@@ -1,0 +1,7 @@
+$("#post_container").hide();
+$("#show_container").hide();
+
+$("#form_container").html("<%= j(render 'form', post: @post) %>");
+$("#form_container").show();
+
+

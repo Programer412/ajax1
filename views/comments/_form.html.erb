@@ -1,0 +1,9 @@
+<%= form_with model: [@post, @comment], local:false do |form| %>
+  <div>
+    <%= form.label :comment, 'Comment' %>
+    <%= form.text_field :comment %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

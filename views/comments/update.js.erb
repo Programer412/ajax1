@@ -1,0 +1,5 @@
+console.log("hello world")
+$("#comment_<%= @comment.id %>").replaceWith("<%= j render('comment_row', post: @post,comment: @comment) %>");
+$("form")[0].reset();
+
+console.log($("#comment_<%= @comment.id %>"))

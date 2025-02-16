@@ -1,0 +1,18 @@
+//alert("update.js.erb loaded");
+
+console.log("Update post");
+console.log("<%= j @post %>");
+
+
+$("#post_<%= @post.id %>").replaceWith("<%= j render('post_row', post: @post) %>");
+$("#form_container").hide();
+$("#post_container").show();
+$("form")[0].reset();
+
+
+
+//console.log($("#post_<%= @post.id %>").html());
+
+//console.log("Form reset");
+
+

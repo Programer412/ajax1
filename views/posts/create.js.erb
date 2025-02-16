@@ -1,0 +1,14 @@
+
+$("tbody").prepend("<%=escape_javascript render('post_row',post: @post) %>");
+$("form")[0].reset();
+
+$("#form_new_container").hide();
+$("#post_container").show();
+
+//setTimeout(function() {
+//    $("#form_new_container").hide();
+//    $("#post_container").show();
+//}, 100);  // 100ms delay
+
+
+
